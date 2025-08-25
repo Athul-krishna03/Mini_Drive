@@ -8,6 +8,8 @@ export const env = {
     mongoUri: process.env.MONGO_URI!,
     accessSecret: process.env.ACCESS_TOKEN_SECRET!,
     refreshSecret: process.env.REFRESH_TOKEN_SECRET!,
+    access_token_expires:process.env.ACCESS_TOKEN_EXPIRES!,
+    refresh_token_expires:process.env.REFRESH_TOKEN_EXPIRES!,
     clientUrl: process.env.CLIENT_URL!,
     aws: {
     region: process.env.AWS_REGION || 'ap-south-1',

@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(
     cors({
-        origin: env.clientUrl || "http://localhost:5173",
+        origin: env.clientUrl,
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
         allowedHeaders: ["Authorization", "Content-Type"],
         credentials: true,
