@@ -6,7 +6,7 @@ It supports user authentication, folder management, file upload/download/share a
 
 🚀 Features
     
-     *User authentication (JWT-based)
+    *User authentication (JWT-based)
     *Create root and nested folders
     *Upload and manage files (S3 integration)
     *Generate shareable file links
@@ -41,84 +41,89 @@ npm start
 Create a .env file in the root directory:
 
 # Server
-PORT=5000
-MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/mini-drive
-JWT_SECRET=your_jwt_secret_key
-ACCESS_TOKEN_SECRET=myaccesssecret
-REFRESH_TOKEN_SECRET=myrefreshsecret
-CLIENT_URL=http://localhost:5173
+    
+    PORT=5000
+    MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/mini-drive
+    JWT_SECRET=your_jwt_secret_key
+    ACCESS_TOKEN_SECRET=myaccesssecret
+    REFRESH_TOKEN_SECRET=myrefreshsecret
+    CLIENT_URL=http://localhost:5173
 
 # AWS S3
-AWS_ACCESS_KEY_ID=your_access_key
-AWS_SECRET_ACCESS_KEY=your_secret_key
-AWS_REGION=ap-south-1
-S3_BUCKET_NAME=mini-drive-bucket
+
+    AWS_ACCESS_KEY_ID=your_access_key
+    AWS_SECRET_ACCESS_KEY=your_secret_key
+    AWS_REGION=ap-south-1
+    S3_BUCKET_NAME=mini-drive-bucket
+
 
 📡 API Documentation
 🔐 Auth
-=>POST /api/auth/register
-
 Register a new user.
-Body:
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123"
-}
 
-=>POST /api/auth/login
+        =>POST /api/auth/register
+        Body:
+        {
+          "name": "John Doe",
+          "email": "john@example.com",
+          "password": "password123"
+        }
 
 Login with email & password.
-Body:
 
-{
-  "email": "john@example.com",
-  "password": "password123"
-}
-
-
-=>Response: JWT token
+        =>POST /api/auth/login
+        Body:
+        
+        {
+          "email": "john@example.com",
+          "password": "password123"
+        }
 
 📂 Folders
-POST /api/private/folders
 
 Create a folder.
-Body:
 
-{
-  "name": "Projects",
-  "parentId": "root"
-}
+    POST /api/private/folders
+    
+    Body:
+    
+    {
+      "name": "Projects",
+      "parentId": "root"
+    }
+Fetch folders.
 
-GET /api/private/folders
-
-Fetch folder contents (files + subfolders).
-
+    GET /api/private/folders
 📁 Files
-=>POST /api/private/upload
 
-Upload a file (multipart form-data).
+Uploading Files
 
-=>GET /api/private/
-
+    =>POST /api/private/upload
+    
 List the file with the link to Share and Download
+    
+    =>GET /api/private/
 
-DELETE /api/private/:id
+
 
 For Deleting the file.
 
-🧪 Sample.env.example
-PORT=5000
-MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/mini-drive
-JWT_SECRET=supersecretkey123
+    +> DELETE /api/private/:id
 
-AWS_ACCESS_KEY_ID=EXAMPLEKEY
-AWS_SECRET_ACCESS_KEY=EXAMPLESECRET
-AWS_REGION=ap-south-1
-S3_BUCKET_NAME=mini-drive-bucket
+🧪 Sample.env.example
+
+    PORT=5000
+    MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/mini-drive
+    JWT_SECRET=supersecretkey123
+    
+    AWS_ACCESS_KEY_ID=EXAMPLEKEY
+    AWS_SECRET_ACCESS_KEY=EXAMPLESECRET
+    AWS_REGION=ap-south-1
+    S3_BUCKET_NAME=mini-drive-bucket
 
 🛠️ Tech Stack
-   *Backend: Node.js, Express, TypeScript
-   *Database: MongoDB (Mongoose)
-   *Storage: AWS S3
-   *Auth: JWT + Bcrypt
+
+       *Backend: Node.js, Express, TypeScript
+       *Database: MongoDB (Mongoose)
+       *Storage: AWS S3
+       *Auth: JWT + Bcrypt
