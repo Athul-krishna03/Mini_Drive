@@ -1,4 +1,4 @@
-Live Link (https://mini-drive-delta.vercel.app)
+Live Link (https://mini.artistaa.shop)
 📂 Mini-Drive Application
 
 A lightweight  Drive–like application built with Node.js, Express, MongoDB, and AWS S3 for file storage.
