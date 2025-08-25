@@ -22,9 +22,9 @@ export const uploadFileFn = async ({ file, folder }: { file: File; folder: strin
     await axiosInstance.post(PRIVATE_ROUTES.UPLOAD, formData);
     return { success: true };
 }
-export const getUserFiles = async (folder: string) => {
+export const getUserFiles = async (folder: string,type?:string) => {
     const response = await axiosInstance.get(PRIVATE_ROUTES.GET_FILE, {
-        params: { folder },
+        params: { folder , type},
     });
     return response.data;
 };

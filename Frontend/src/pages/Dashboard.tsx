@@ -12,8 +12,9 @@ import { toast } from "@/hooks/useToast";
 const Dashboard = () => {
     const [currentFolder, setCurrentFolder] = useState<string>("root");
     const [currentFolderName, setCurrentFolderName] = useState<string>("root");
-    
-    const { data: files = [], isLoading } = useFiles("all");
+    const [type, setType] = useState<string>("all");
+
+    const { data: files = [], isLoading } = useFiles('all', type);
     const { mutate: deleteFile } = useFileDelete();
     const currentFiles = useMemo(() => {
         return files.filter((f: IFile) => f.folder === currentFolder);
@@ -69,6 +70,19 @@ const Dashboard = () => {
             currentFolder={currentFolder}
 
         />
+        <div className="px-6 py-3">
+            <select
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+                        className="border border-gray-300 rounded-md p-2"
+                    >
+                        <option value="all">All</option>
+                        <option value="image">Images</option>
+                        <option value="pdf">Pdf</option>
+                        <option value="doc">Documents</option>
+                    </select>
+                </div>
+
         <main>
             <>
             {currentFiles.length === 0  ? (
@@ -89,6 +103,7 @@ const Dashboard = () => {
                     onDownload={handleDownload}
                     onShare={handleShare}
                     onDelete={handleDelete}
+
                     />
                 )}
                 </>

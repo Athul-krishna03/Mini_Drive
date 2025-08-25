@@ -37,7 +37,6 @@ export const FileList = ({ files, onDownload, onShare, onDelete }: IFileListProp
                 <div className="px-6 py-3 border-b border-gray-200">
                     <h3 className="text-sm font-medium text-gray-900">Files</h3>
                 </div>
-                
                 <div className="divide-y divide-gray-200">
                     {files.map((file) => (
                         <div key={file._id} className="px-6 py-4 hover:bg-gray-50 transition-colors">

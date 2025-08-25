@@ -6,10 +6,10 @@ import { toast } from "./useToast";
 
 
 
-export const useFiles = (folder: string) => {
+export const useFiles = (folder: string, type: string) => {
     return useQuery({
-        queryKey: ["files", { folder }],
-        queryFn: () => getUserFiles(folder),
+        queryKey: ["files", { folder , type}],
+        queryFn: () => getUserFiles(folder, type),
         enabled: !!folder, 
     });
 };
