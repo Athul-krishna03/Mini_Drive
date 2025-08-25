@@ -1,10 +1,12 @@
+Live Link (https://mini-drive-delta.vercel.app)
 📂 Mini-Drive Application
 
 A lightweight  Drive–like application built with Node.js, Express, MongoDB, and AWS S3 for file storage.
 It supports user authentication, folder management, file upload/download/share and delete
 
 🚀 Features
-    *User authentication (JWT-based)
+    
+     *User authentication (JWT-based)
     *Create root and nested folders
     *Upload and manage files (S3 integration)
     *Generate shareable file links
@@ -13,8 +15,11 @@ It supports user authentication, folder management, file upload/download/share a
 Clipboard & native sharing support
 
 ⚙️ Setup Instructions
+
 1️⃣ Clone the repository
+
 git clone https://github.com/your-username/mini-drive.git
+
 cd mini-drive
 
 2️⃣ Install dependencies
